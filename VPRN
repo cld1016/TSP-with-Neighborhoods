@@ -77,7 +77,6 @@ public class VRP {
 		/** @todo  Need to put in a VRP file and read in VRP data. The readfile method will have to be changed to match the format of the
 		 * vrp file*/
 		//read in the MDVRP data
-		//readDataFromTextFile(ProblemInfo.inputPath + dataFile);
 		readDataFromExcelFile(ZeusProblemInfo.getInputPath() + dataFile);
 		//readDataFromExcelFile(ProblemInfo1.inputPath + dataFile);
 		Settings.printDebug(Settings.COMMENT,
@@ -134,30 +133,8 @@ public class VRP {
 		mainOpts = new Vector(1); //vector capacity of 1
 		//sets the upperbound in LocalOneOpt and
 		//sets the name of the search to Best
-		//mainOpts.add(new FirstFirstIntraSearch(new ThreeOpt()));
-		//mainOpts.add(new FirstFirstIntraSearch(new OneOpt()));
-		//mainOpts.add(new FirstBestIntraSearch(new OneOpt(false)));
-		//mainOpts.add(new BestBestIntraSearch(new OneOpt()));
-		//mainOpts.add(new FirstFirstInterSearch(new Exchange01()));
-		//mainOpts.add(new FirstFirstInterSearch(new Exchange10()));
-		//mainOpts.add(new FirstFirstInterSearch(new Exchange11(false)));
-		//mainOpts.add(new FirstBestInterSearch(new Exchange01()));
-		//mainOpts.add(new FirstFirstInterSearch(new Exchange22()));
-		//mainOpts.add(new FirstFirstInterSearch(new Exchange11()));
-		//mainOpts.add(new FirstFirstInterSearch(new Exchange11()));
-		//mainOpts.add(new FirstBestInterSearch(new Exchange11()));
-		//mainOpts.add(new BestBestInterSearch(new Exchange11()));
-		//mainOpts.add(new Combination1(ProblemInfo.truckTypes));
-		//runOptimizations();
 		
-
-		//create a vector of search strategy/optimizations to execute
-		//mainOpts = new Vector(1);
-		//add a first-first local 1-opt
-		//simAnnealOpts.add(new FirstBestIntraSearch(new LocalOneOpt()));
-		//add an intra and inter-opt search strategy
-		//mainOpts.add(new FirstBestIntraSearch(new OneOpt(false)));
-		//mainOpts.add(new FirstFirstInterSearch(new Exchange11(false)));
+		
 		
 		
 		////////////////////////////////////////////////////////////////////////////
@@ -341,15 +318,7 @@ public class VRP {
 		String readLn;
 		StringTokenizer st;
 
-		//This reads in the first line that is used to determine the total
-		//numer of customers and type of problem
-		//typePvrp is + type);
-		//numVeh is         + m; //not really used in an MDVRP
-		//numCust is        + n;
-		//Days is            + t; //Depots in the case of MDVRP
-		//Depot duration is + D;
-		//capacity is       + Q;
-
+		
 		//read in the first line
 		try {
 			readLn = br.readLine();
@@ -395,12 +364,7 @@ public class VRP {
 		ZeusProblemInfo.setNoOfShips(n);			  //number of shipments
 		ZeusProblemInfo.setNoOfDays(t);			  //number of days (horizon) or number of depots for MDVRP
 		
-		//ProblemInfo1.numDepots = 1; //Set the number of depots to 1 for this problem
-		//ProblemInfo1.fileName = VRPFileName; //name of the file being read in
-		//ProblemInfo1.probType = type; //problem type
-		//ProblemInfo1.noOfVehs = m; //number of vehicles
-		//ProblemInfo1.noOfShips = n; //number of shipments
-		//ProblemInfo1.noOfDays = t; //number of days (horizon) or number of depots for MDVRP
+		
 		if (Q == 0) { //if there is no maximum capacity, set it to a very large number
 			Q = 999999999;
 		}
@@ -440,22 +404,8 @@ public class VRP {
 			//custTypes.add(new Integer(1));
 		}
 
-		//place the number of depots and number of shipments in the linked list instance
-		//These no longer seem to be needed for the shipment linked list. The total number of
-		//shipments are tallied when they are inserted into the linked list
-		//mainShipments.numShipments = n;
-		//mainShipments.noDepots = t;
-		//mainShipments.maxCapacity = Q;
-		//mainShipments.maxDuration = D ;
-
-		//display the information from the first line
-		//System.out.println("typePvrp is       " + type);
-		//System.out.println("numVeh is         " + m);
-		//System.out.println("numCust is        " + n);
-		//System.out.println("days is           " + t);
-		//System.out.println("Depot duration is " + D);
-		//System.out.println("capacity is       " + Q);
-
+		
+		
 		if (type != 0) { //then it is not an MDVRP problem
 			System.out.println("Problem is not an MDVRP problem");
 			return 0;
@@ -730,12 +680,7 @@ public class VRP {
 		ZeusProblemInfo.setNoOfShips(n);			  //number of shipments
 		ZeusProblemInfo.setNoOfDays(t);			  //number of days (horizon) or number of depots for MDVRP
 		
-		//ProblemInfo1.numDepots = t; //Set the number of depots to 1 for this problem
-		//ProblemInfo1.fileName = VRPFileName; //name of the file being read in
-		//ProblemInfo1.probType = type; //problem type
-		//ProblemInfo1.noOfVehs = m; //number of vehicles
-		//ProblemInfo1.noOfShips = n; //number of shipments
-		//ProblemInfo1.noOfDays = t; //number of days (horizon) or number of depots for MDVRP
+		
 
 		if (Q == 0) { //if there is no maximum capacity, set it to a very large number
 			Q = 999999999;
@@ -775,22 +720,8 @@ public class VRP {
 			custTypes.add(new Integer(1));
 		}
 
-		//place the number of depots and number of shipments in the linked list instance
-		//These no longer seem to be needed for the shipment linked list. The total number of
-		//shipments are tallied when they are inserted into the linked list
-		//mainShipments.numShipments = n;
-		//mainShipments.noDepots = t;
-		//mainShipments.maxCapacity = Q;
-		//mainShipments.maxDuration = D ;
-
-		//display the information from the first line
-		//System.out.println("typePvrp is       " + type);
-		//System.out.println("numVeh is         " + m);
-		//System.out.println("numCust is        " + n);
-		//System.out.println("days is           " + t);
-		//System.out.println("Depot duration is " + D);
-		//System.out.println("capacity is       " + Q);
-
+		
+		
 		if (type != 0) { //then it is not an MDVRP problem
 			System.out.println("Problem is not an MDVRP problem");
 			return 0;
@@ -806,12 +737,7 @@ public class VRP {
 				a = 0; //number of combinations allowed
 		int runTimes;
 
-		//Use 1 less the maximum as the 0 index is not used
-		//declare the total number of combinations
-		//int list[] = new int[ProblemInfo.MAX_COMBINATIONS];
-		//array of 0'1 and 1's for the combinations
-		//int currentComb[][] = new int[ProblemInfo.MAX_HORIZON][ProblemInfo.MAX_COMBINATIONS];
-		//TODO Max_horizon = 7 it's too small
+		
 
 		//if MDVRP problem, readn in n+t lines
 		if (type == 0) {
@@ -853,15 +779,7 @@ public class VRP {
 				catch (Exception e) {
 					System.out.println("Line could not be read in line 474");
 				}
-				//Each combination gets its own set of 0 and 1 combinations
-				//a = number of Combinations, list = [] of comb as ints,
-				//l=index of combination to be decoded,
-				//t = days in planning horizon or #depots
-				//						for (int l = 0; l < a; l++) {
-				//							currentComb[l] = mainShipments.getCurrentComb(list, l, t); // current visit comb
-				//
-				//							//insert the customer data into the linked list
-				//						}
+			
 				Integer custType = (Integer) custTypes.elementAt(0);
 				mainShipments.insertShipment(i, x, y, q, d, f, custType.toString());
 				
