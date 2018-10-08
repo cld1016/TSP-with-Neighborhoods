@@ -27,17 +27,7 @@ public class VRPRoot {
     ZeusProblemInfo.setOutputPath("data\\vrp\\results\\");
     
     
-    //ProblemInfo1.nodesLLLevelCostF = new VRPNodesLLCostFunctions();
-    //ProblemInfo1.truckLevelCostF = new VRPTruckCostFunctions();
-    //ProblemInfo1.truckLLLevelCostF = new VRPTruckLLCostFunctions();
-    //ProblemInfo1.depotLevelCostF = new VRPDepotCostFunctions();
-    //ProblemInfo1.depotLLLevelCostF = new VRPDepotLLCostFunctions();
-    //Paths for temporary, input and output files
-    //ProblemInfo.currDir gives the working directory of the program
-    //ProblemInfo1.tempFileLocation = ProblemInfo1.workingDirectory+"\\temp";
-    //ProblemInfo1.inputPath = ProblemInfo1.workingDirectory+"\\data\\vrp\\problems\\";
-
-    //ProblemInfo1.outputPath = ProblemInfo1.workingDirectory+"\\data\\vrp\\results\\";
+   
     
 
     /* String path = "";
