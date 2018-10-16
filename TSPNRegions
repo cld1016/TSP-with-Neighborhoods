@@ -1,1 +1,87 @@
+package edu.sru.thangiah.zeus.vrp;
 
+import java.io.*;
+import java.util.*;
+
+import edu.sru.thangiah.zeus.core.*;
+import edu.sru.thangiah.zeus.localopts.*;
+import edu.sru.thangiah.zeus.localopts.interopts.*;
+import edu.sru.thangiah.zeus.localopts.intraopts.*;
+
+import edu.sru.thangiah.zeus.vrp.vrpqualityassurance.*;
+import edu.sru.thangiah.zeus.gui.*;
+import edu.sru.thangiah.zeus.localopts.OptInfo;
+import edu.sru.thangiah.zeus.localopts.*;
+
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+
+//For the Simulated Annealing metaheuristic
+import edu.sru.thangiah.zeus.metaheuristics.simulatedannealing.*;
+
+
+public class TSPNRegions {
+
+	
+	public TSPNRegions(String dataFile){
+	
+		readDataFromExcelFile(ZeusProblemInfo.getInputPath() + dataFile);
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	public int readDataFromExcelFile(String VRPFileName) {
+		// read in the MDVRP data from the listed file and load the information
+		// into the availShipments linked list
+
+		//type = 0 (MDVRP)
+		//     = 1 (PTSP)
+		//     = 2 (PVRP)
+		char ch;
+		String temp = "";
+		int index = 0,
+				j = 0,
+				type = 0, //type
+				m        = 0,                           //number of vehicles
+				n        = 0,                           //number of customers
+				t        = 0,                           //number of days(or depots)
+				D        = 0,                           //maximum duration of route
+				Q        = 0;                           //maximum load of vehicle
+		int p = 3; //Np neighborhood size
+
+		int depotIndex;
+
+		//Open the requested file
+		XSSFWorkbook workbook = new XSSFWorkbook();    
+		FileInputStream fis;
+		XSSFSheet sheet;
+		XSSFRow curRow;
+		int rowCounter = 0; //initial the row counter
+
+		//    FileInputStream fis;
+		//    InputStreamReader isr;
+		//    BufferedReader br;
+		try {
+			fis = new FileInputStream(VRPFileName);
+			workbook = new XSSFWorkbook(fis);
+			sheet = workbook.getSheetAt(0);
+			curRow = sheet.getRow(rowCounter+1); // the 2nd row is the problem data
+
+			//      fis = new FileInputStream(VRPFileName);
+			//      isr = new InputStreamReader(fis);
+			//      br = new BufferedReader(isr);
+		}
+		catch (Exception e) {
+			System.out.println("readDataFromExcelFile - "+VRPFileName+" File is not present");
+			return 0;
+		}
+	}
+}
