@@ -24,6 +24,21 @@ import edu.sru.thangiah.zeus.metaheuristics.simulatedannealing.*;
 
 public class TSPNRegions {
 
+	int m = 0, //number of vehicles
+			n = 0, //number of customers
+			t = 0, //number of days(or depots)
+			D = 0, //maximum duration of route
+			Q = 0; //maximum capacity of vehicle
+
+	long startTime, endTime; //track the CPU processing time
+	private Vector mainOpts = new Vector(); //contains the collections of optimizations
+	@SuppressWarnings("rawtypes")
+	private Vector optInformation = new Vector(); //contains information about routes
+	private VRPShipmentLinkedList mainShipments = new VRPShipmentLinkedList(); //customers read in from a file or database that are available
+	private VRPDepotLinkedList mainDepots = new VRPDepotLinkedList(); //depots linked list for the VRP problem
+	/* This needs to be looked at in how it defines the entire structure and how to clean out lists for DepotLL, TruckLL and NodesLL */
+	private VRPQualityAssurance vrpQA; //check the integrity and quality of the solution
+
 	
 	public TSPNRegions(String dataFile){
 	
