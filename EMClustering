@@ -1,0 +1,19 @@
+package edu.sru.thangiah.zeus.vrp;
+
+import edu.sru.thangiah.zeus.core.ClusterLinkedList;
+
+public class EMClustering extends ClusterLinkedList {
+	
+	
+	
+	
+	public EMClustering(String Filename, int numCircles) {  //constructor
+		
+		ClusterLinkedList.setNumCircles(numCircles);
+		
+		
+	}
+	
+
+}
+
