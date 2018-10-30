@@ -7,9 +7,9 @@ public class EMClustering extends ClusterLinkedList {
 	
 	
 	
-	public EMClustering(String Filename, int numCircles) {  //constructor
+	public EMClustering(String Filename, int x) {  //constructor
 		
-		ClusterLinkedList.setNumCircles(numCircles);
+		setNumCircles(x);
 		
 		
 	}
